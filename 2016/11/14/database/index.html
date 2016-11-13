@@ -1,0 +1,809 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ioc?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="数据库数据 ：能够输入计算机并能被计算机程序识别和处理的信息集合。
+数据库（Database）：是按照数据结构来组织、存储和管理数据的仓库。数据库是在数据库管理系统管理和控制之下，存放在存储介质上的数据集合。
+数据库管理系统：数据库管理系统是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS。它对数据库进行统一的管理 和控制，以保证数据库的安全性和完整性。一般支持数据库定义功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python连接mysql数据库">
+<meta property="og:url" content="http://yoursite.com/2016/11/14/database/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="数据库数据 ：能够输入计算机并能被计算机程序识别和处理的信息集合。
+数据库（Database）：是按照数据结构来组织、存储和管理数据的仓库。数据库是在数据库管理系统管理和控制之下，存放在存储介质上的数据集合。
+数据库管理系统：数据库管理系统是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS。它对数据库进行统一的管理 和控制，以保证数据库的安全性和完整性。一般支持数据库定义功">
+<meta property="og:updated_time" content="2016-11-02T14:00:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python连接mysql数据库">
+<meta name="twitter:description" content="数据库数据 ：能够输入计算机并能被计算机程序识别和处理的信息集合。
+数据库（Database）：是按照数据结构来组织、存储和管理数据的仓库。数据库是在数据库管理系统管理和控制之下，存放在存储介质上的数据集合。
+数据库管理系统：数据库管理系统是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS。它对数据库进行统一的管理 和控制，以保证数据库的安全性和完整性。一般支持数据库定义功">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/14/database/"/>
+
+  <title> python连接mysql数据库 | My Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+
+
+      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High</a> </li>
+
+
+    </ul>
+  
+
+  
+</nav>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python连接mysql数据库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-14T00:01:27+08:00" content="2016-11-14">
+              2016-11-14
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>数据 ：能够输入计算机并能被计算机程序识别和处理的信息集合。</p>
+<p>数据库（Database）：是按照数据结构来组织、存储和管理数据的仓库。数据库是在数据库管理系统管理和控制之下，存放在存储介质上的数据集合。</p>
+<p>数据库管理系统：数据库管理系统是一种操纵和管理数据库的大型软件，用于建立、使用和维护数据库，简称DBMS。它对数据库进行统一的管理 和控制，以保证数据库的安全性和完整性。一般支持数据库定义功能，数据库操纵功能，数据库运行控制功能，数据通信功能，支持存取海量数据等</p>
+<p>数据库系统（DBS）：它和数据库不是一个概念，数据库系统比数据库大的多，由数据库、数据库管理系统、应用开发工具构成。常见的数据库系统：甲骨文的Oracle、IBM的DB2、微软的SQLServer、开源的MySQL等。</p>
+<p>##MySql数据库的安装<br>并不是所有的系统自来就有mysql，如果你想使用mysql数据库需要进行安装。下面以ubuntu为例进行安装，如果是windows下可以去Oracle的mysql官方页面下载自己喜欢的版本安装。最近的版本已经是5.6版本。<br><a href="http://www.mysql.com/%20mysql%E5%AE%98%E7%BD%91" target="_blank" rel="external">mysql官网</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1． Sudo apt-get update</div><div class="line"></div><div class="line">2． Sudo apt-get install mysql-server</div></pre></td></tr></table></figure>
+<p>安装过程会自动弹出配置界面</p>
+<p>安装mysql的服务端后，可以对数据库进行后端操作。还可以安装个客户端用来访问数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install mysql-client</div></pre></td></tr></table></figure>
+<p>安装完成后通过mysql –u root -p 然后输入密码可以进入数据库了。</p>
+<p>如果想用python对mysql数据库进行操作不像sqlite那么简单，还需要安装python的MySQLdb 进行支持，实际这是一个接口程序，没安装前导入模块失败。</p>
+<p>MySQLdb可以通过源码安装或者apt-get直接安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install python-mysqldb</div></pre></td></tr></table></figure>
+<p>安装以后可以在python中导入MySQLdb模块，如果导入成功基本就没有什么问题了。安装过程会有一些自动的路径搜索，如果你的操作系统中不同目录下安装了很多不同版本那么可能只有一个能用，需要你进行配置。当然安装方法还有很多，只要最终能够达到目的就可以了。</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>help : 查看命令帮助</p>
+<p>quit 或 exit： 退出mysql操作</p>
+<p>show databases ： 显示数据库文件列表</p>
+<p>use [database]：打开数据库</p>
+<p>show tables ：显示数据库中所有表名</p>
+<p>desc <figure class="highlight plain"><figcaption><span>查看表的结构</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在sql中关键字是不区分大小写的，操作内容区分大小写。</div><div class="line"></div><div class="line">### 语句主要可以分为以下三类</div><div class="line">DDL语句（数据定义）</div><div class="line">这些语句定义了不同的数据段、数据库、表、列、索引等数据库对象。常用的关键字包括create、drop、alter等</div><div class="line"></div><div class="line">DML语句（数据操纵）</div><div class="line">用于添加、删除、更新和查询数据记录，并检查数据完整性。常用关键字包括insert、delete、update、和select的等。</div><div class="line"></div><div class="line">DCL语句（数据控制）</div><div class="line"></div><div class="line">用于控制不同数据段直接的许可和访问级别的语句。这些语句定义了数据库、表、字段、用户的访问权限和安全级别。主要的语句关键字有grant、revoke等。</div><div class="line"></div><div class="line">### sql数据定义</div><div class="line">创建一个数据库</div><div class="line"></div><div class="line">create database [databasename]</div><div class="line"></div><div class="line">创建后MySql在linux下默认的数据文件存储目录为/var/lib/mysql</div><div class="line"></div><div class="line">删除一个数据库</div><div class="line"></div><div class="line">drop database [databasename]</div><div class="line"></div><div class="line">创建一个表：</div><div class="line"></div><div class="line">create table tabname(col1 type1 [not null] [primary key],col2 type2 [not null],..)</div><div class="line"></div><div class="line">这个命令中tabname为表名后面col为字段名称，type1为字段数据类型，后面是约束条件。</div></pre></td></tr></table></figure></p>
+<p>runoob_tbl(<br>   runoob_id INT NOT NULL AUTO_INCREMENT,<br>   runoob_title VARCHAR(100) NOT NULL,<br>   runoob_author VARCHAR(40) NOT NULL,<br>   submission_date DATE,<br>   PRIMARY KEY ( runoob_id )<br>);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line">如果你不想字段为NULL可以设置字段的属性为NOT NULL，在操作数据库时如果输入该字段的数据为NULL，就会报错。</div><div class="line"></div><div class="line">AUTO_INCREMENT定义列为自增的属性，一般用于主键，数值会自动加1。</div><div class="line"></div><div class="line">PRIMARY KEY关键字用于定义列为主键。可以使用多列来定义主键，列间以逗号分隔。</div><div class="line">删除一个表：</div><div class="line"></div><div class="line">drop table [table_name]</div><div class="line"></div><div class="line">修改数据表字段类型</div><div class="line"></div><div class="line">alter table [tablename] modify [field] [new_type] [first | after]</div><div class="line"></div><div class="line">增加表字段</div><div class="line"></div><div class="line">alter table [tablename] add column ([field] [type], ...) [first | after]</div><div class="line"></div><div class="line">删除表字段</div><div class="line"></div><div class="line">alter table [tablename] drop column [field];</div><div class="line"></div><div class="line">字段改名</div><div class="line"></div><div class="line">alter table [tablename] change &lt;old_field&gt; &lt;new_field&gt; [type] [first | after]</div><div class="line"></div><div class="line">修改默认值</div><div class="line"></div><div class="line">ALTER TABLE [tablename] ALTER [field] SET DEFAULT 1000;</div><div class="line"></div><div class="line">ALTER TABLE [tablename] ALTER [field] DROP DEFAULT;</div><div class="line"></div><div class="line">更改表名</div><div class="line"></div><div class="line">alter table [tablename] rename [to] [new_tablename]</div><div class="line"></div><div class="line">### sql数据操作</div><div class="line">插入记录</div><div class="line"></div><div class="line">insert into [table_name] (field1,field2....) values (value1, value2,…);</div><div class="line"></div><div class="line">如果不指定类型那么默认需要按照表的字段顺序来写值</div><div class="line"></div><div class="line">更新记录</div><div class="line"></div><div class="line">update [table_name] set [f1=value1], [f2=value2] … where [expression];</div><div class="line"></div><div class="line">删除记录</div><div class="line"></div><div class="line">delete from [table_name] where [expression]</div><div class="line"></div><div class="line">查询记录</div><div class="line"></div><div class="line">select * from [table_name] where [expression]</div><div class="line"></div><div class="line">“*”代表所有记录，也可以用都好分割的方式选定字段来代替。</div><div class="line"></div><div class="line">条件查询</div><div class="line"></div><div class="line">select * from [table_name] where [expression]</div><div class="line"></div><div class="line">在条件中可以使用个= &gt; &lt; &gt;= &lt;= != 等比较运算符，还可以使用and，or等逻辑运算符。</div><div class="line"></div><div class="line">like也可以进行字符串比较, &apos;%&apos; 代表多个字符,   &apos;_&apos;代表一个字符。</div><div class="line">### Mysql的python数据库接口</div><div class="line">mysqldb</div><div class="line"></div><div class="line">#### 建立连接</div><div class="line">要与数据库进行通信, 必须先和数据库建立连接。连接对象处理命令如何送往服务器, 以及如 何从服务器接收数据等基础功能。连接成功(或一个连接池)后你就能够向数据库服务器发送请求, 得到响应。</div><div class="line">####常用方法</div><div class="line">connect()              创建数据库连接</div><div class="line">close()                关闭数据库连接</div><div class="line">commit()               提交当前事务</div><div class="line">rollback()             取消当前事务</div><div class="line">cursor()               使用这个连接创建并返回一个游标或类游标的对象</div><div class="line"></div><div class="line">connect()调用：注意不是所有的接口程序都是严格按照规范实现的。MySQLdb 就使用了 db 参 数而不是规范推荐的 database 参数来表示要访问的数据库。</div><div class="line">一旦执行了close()方法，再试图使用连接对象的方法将会导致异常。对不支持事务的数据库或者虽然支持事务，但设置了自动提交(auto- commit)的数据库系统来说，commit()方法什么也不做。如果你确实需要，可以实现一个自定义方法来关闭自动提交行为。由于 DB-API 要求必须实现此方法，对那些没有事务概念的数据库来说，这个方法只需要有一条pass语句就可以了。类似 commit()，rollback()方法仅对支持事务的数据库有意义。执行完 rollback()，数据库将恢复到提交事务前的状态。根据 PEP249，在提交 commit()之前关闭数据库连接将会自动调用rollback()方法。对不支持游标的数据库来说,  cursor()方法仍然会返回一个尽量模仿游标对象的对象。这些是最低要求。特定数据库接口程序的开发者可以任意为他们的接口程序添加额外的属性，只要 他们愿意。DB-API 规范建议但不强制接口程序的开发者为所有数据库接口模块编写异常类。如果没有提供异常类，则假定该连接对象会引发一致的模块级异常。一旦你完成了数据库连 接，并且关闭了游标对象，你应该执行 commit() 提交你的操作，然后关闭这个连接。</div><div class="line">### 游标对象操作</div><div class="line">当你建立连接之后，就可以与数据库进行交互。我们提交一个游标允许用户执行数据库命令和得到查询结果。一个 Python DB-API 游标对象总是扮演游标的角色, 无论数据库是否真正支持游标。从这一点讲, 数据库接口程序必须实现游标对象。只有这样，才能保证无论使用何种后端数据库你的代码都不需要做任何改变。创建游标对象之后，你就可以执行查询或其它命令 (或者多个查询和多个命令), 也可以从结果集中取出一条或多条记录。</div><div class="line">#### 游标属性和方法</div><div class="line">arraysize 使用 fechmany()方法一次取出多少条记录, 默认值为 1</div><div class="line">connectionn 创建此游标对象的连接(可选)</div><div class="line">description 返回游标活动状态(一个包含七个元素的元组): (name, type_code,display_size, internal_ size, precision, scale, null_ok); 只有 name 和 type_code 是必须提供的</div><div class="line">lastrowid 返回最后更新行的 id (可选), 如果数据库不支持行 id, 默认返回 None)</div><div class="line">rowcount 最后一次 execute() 操作返回或影响的行数</div><div class="line">callproc(func[,args]) 调用一个存储过程</div><div class="line">**close() 关闭游标对象**</div><div class="line">**execute(op[,args]) 执行一个数据库查询或命令**</div><div class="line">executemany(op,args) 类似 execute() 和 map() 的结合, 为给定的每一个参数准备并执行一个数据库查询/命令</div><div class="line">**fetchone() 得到结果集的下一行**</div><div class="line">**fetchmany([size=cursor.arraysize]) 得到结果集的下几行 (几 = size)**</div><div class="line">**fetchall() 返回结果集中剩下的所有行**</div><div class="line">__iter__() 创建一个迭代对象 (可选; 参阅 next())</div><div class="line">messages 游标执行后数据库返回的信息列表 (元组集合) (可选)</div><div class="line">next() 使用迭代对象得到结果集的下一行(可选; 类似 fetchone(), 参阅 __iter__())</div><div class="line">nextset() 移到下一个结果集 (如果支持的话)</div><div class="line">rownumber 当前结果集中游标的索引 (以行为单位, 从 0 开始) (可选)</div><div class="line">setinput- sizes(sizes) 设置输入最大值 (必须有, 但具体实现是可选的)</div><div class="line">setoutput- size(size[,col]) 设置大列的缓冲区大写(必须有, 但具体实现是可选的)</div><div class="line"></div><div class="line">在这众多游标对象中最重要的属性是 execute() 和 fetch()方法。所有对数据库服务器的请求都由它们来完成。对 fetchmany()方法来说, 设置一个合理的 arraysize属性会很有用。当然，在不需要时关掉游标对象也是个好主意</div><div class="line"></div><div class="line">#### python使用mysql数据库的一些基本操作</div></pre></td></tr></table></figure></p>
+<p>#! /usr/bin/python</p>
+<p>#coding=utf-8<br>import MySQLdb</p>
+<p>#打开数据库连接<br>db = MySQLdb.connect(‘localhost’,’root’,’5560442’,’testdb’)</p>
+<p>#创建游标，用来通过sql语句操作具体数据<br>cursor = db.cursor()</p>
+<p>#通过游标对象执行sql语句<br>cursor.execute(“select age,sex from emp where name = ‘gt’”)<br>data = cursor.fetchone()<br>print data</p>
+<p>#—————</p>
+<p>#创建表</p>
+<p>#cursor.execute(“drop table if exists newtab”)</p>
+<p>#sql = “create table newtab(id int not null,name varchar(20),age int,income float)”</p>
+<p>#cursor.execute(sql)</p>
+<p>#—————<br>sql = “select * from newtab”<br>cursor.execute(sql)<br>id1 = cursor.fetchall()[0][0]#这个返回的是一个查询出来的结果组成元组<br>print id1<br>name = cursor.description[1][0]#返回一个由（每个属性的七个元素组成的元组）的元组，元组里面有元组<br>print name<br>for i in cursor.description:<br>    print i[0],<br>sql1 = “update newtab set name = ‘gt’ where id = ‘“+str(id1)+”‘“<br>try:<br>    cursor.execute(sql1)<br>    db.commit()<br>except:<br>    db.rollback()#回滚到执行前的状态<br>try:<br>    cursor.execute(“insert into qq values(‘“+id1+”‘,’”+name+”‘)”)<br>    db.commit()<br>except:<br>    db.rollback()<br>db.close()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#### 题目 ： 完成一个学生成绩管理系统</div><div class="line"></div><div class="line">实验要求 ：</div><div class="line"></div><div class="line">使用python和mysql数据库完成该实验</div><div class="line"></div><div class="line">基本功能应该包含学生信息和分数的增删改查操作</div><div class="line"></div><div class="line">自己创建数据库和表</div><div class="line"></div><div class="line">程序有简单的命令提示，代码具有一定的封装性和可扩建型</div><div class="line"></div><div class="line">#### 实现代码</div></pre></td></tr></table></figure>
+<p>#! /usr/bin/python</p>
+<p>#coding=utf-8<br>import MySQLdb<br>def insert(db):<br>    cursor = db.cursor()<br>    name = raw_input(“姓名：”)<br>    age = raw_input(“年龄：”)<br>    mark = raw_input(“成绩：”)<br>    try:<br>        sql = “insert into soure values(‘%s’,’%s’,’%s’)”%(name,age,mark)<br>        cursor.execute(sql)<br>        db.commit()<br>        print “插入成功！”<br>    except:<br>        print “插入失败！”<br>        db.rollback()<br>def select(db):<br>    cursor = db.cursor()<br>    sql = “select <em> from soure “<br>    cursor.execute(sql)<br>    for i in cursor.description:<br>        print i[0],<br>    print “”<br>    for row in cursor.fetchall():<br>        print row[0],row[1],row[2]<br>def selectone(db,name):<br>    cursor = db.cursor()<br>    sql = “select </em> from soure where name=’%s’”%name<br>    cursor.execute(sql)<br>    for i in cursor.description:<br>        print i[0],<br>    print “”<br>    for row in cursor.fetchall():<br>        print row[0],row[1],row[2]<br>def delete(db):<br>    cursor = db.cursor()<br>    sql = “select <em> from soure “<br>    cursor.execute(sql)<br>    for i in cursor.description:<br>        print i[0],<br>    print “”<br>    for row in cursor.fetchall():<br>        print row[0],row[1],row[2]<br>    name = raw_input(“输入要删除学生姓名：”)<br>    sql = “delete from soure where name=’%s’”%name<br>    try:<br>        cursor.execute(sql)<br>        db.commit()<br>        print “删除成功！”<br>    except:<br>        print “删除失败！”<br>        db.rollback()<br>def update(db):<br>    cursor = db.cursor()<br>    sql = “select </em> from soure “<br>    cursor.execute(sql)<br>    for i in cursor.description:<br>        print i[0],<br>    print “”<br>    for row in cursor.fetchall():<br>        print row[0],row[1],row[2]<br>    name = raw_input(“输入修改的学生姓名：”)<br>    mark = raw_input(“输入修改的成绩：”)<br>    sql = “update soure set mark = ‘%s’ where name = ‘%s’”%(mark,name)<br>    try:<br>        cursor.execute(sql)<br>        db.commit()<br>        print “修改成功！”<br>    except:<br>        print “修改失败！”<br>        bd.rollback()<br>def updateone(db,name):<br>    cursor = db.cursor()<br>    sql = “select * from soure where name=’%s’”%name<br>    cursor.execute(sql)<br>    for i in cursor.description:<br>        print i[0],<br>    print “”<br>    for row in cursor.fetchall():<br>        print row[0],row[1],row[2]<br>    age = raw_input(“要修改的年龄”)<br>    sql1 = “update soure set age = ‘%s’ where name = ‘%s’”%(age,name)<br>    try:<br>        cursor.execute(sql1)<br>        db.commit()<br>        print “修改成功！”<br>    except:<br>        print “修改失败！”<br>        db.rollback()<br>def updatepw(db,name):<br>    cursor = db.cursor()<br>    pas = raw_input(“输入旧密码：”)<br>    sql1 = “select password from users where password = ‘%s’”%(pas)<br>    cursor.execute(sql1)<br>    data = cursor.fetchone()<br>    if data != None:<br>        new_pas = raw_input(“新密码：”)<br>        new_pas1 = raw_input(“确认新密码：”)<br>        if new_pas == new_pas1:<br>            sql = “update users set password = ‘%s’ where username = ‘%s’”%(new_pas,name)<br>            try:<br>                cursor.execute(sql)<br>                db.commit()<br>                print “修改密码成功,请重新登陆！”<br>                return main()<br>            except:<br>                print “失败！”<br>                db.rollback()<br>def register(db,n,pw):<br>    cursor = db.cursor()<br>    sql2 = “select username from users where username = ‘%s’”%n<br>    cursor.execute(sql2)<br>    data = cursor.fetchone()<br>    if data == None:<br>        sql = “insert into users(username,password) values(‘%s’,’%s’)”%(n,pw)<br>        sql1 = “insert into soure(name) values(‘%s’)”%(n)<br>        try:<br>            cursor.execute(sql)<br>            cursor.execute(sql1)<br>            db.commit()<br>            print “注册成功！”<br>        except:<br>            print “register error”<br>            db.rollback()<br>    else:<br>        print “用户名已存在！”<br>        return main()<br>def main():<br>    db = MySQLdb.connect(‘localhost’,’root’,’5560442’,’student’)<br>    while True:<br>        print “——menu——“<br>        print “—-register—-“<br>        print “—-loginon—–”<br>        print “—-quit——–”<br>        order = raw_input(“&gt;&gt;&gt;”)<br>        if order == “register”:<br>            username = raw_input(“请输入用户名：”)<br>            password = raw_input(“请输入密码：”)<br>            register(db,username,password)<br>        elif order == “loginon”:<br>                loginname = raw_input(“请输入登陆名：”)<br>                loginpass = raw_input(“请输入密码：”)<br>                cursor = db.cursor()<br>                sql = “select username,password,biaozhi from users where username=’%s’ and password=’%s’”%(loginname,loginpass)<br>                try:<br>                    cursor.execute(sql)<br>                    data = cursor.fetchone()[2]<br>                    while True:<br>                        if data == 1:<br>                            print “–manager menu–”<br>                            print “—-1.select—-“<br>                            print “—-2.insert—-“<br>                            print “—-3.update—-“<br>                            print “—-4.delete—-“<br>                            print “—-5.quit——“<br>                            operate = raw_input(“输入操作对应的数字：”)<br>                            if operate == ‘1’:<br>                                select(db)<br>                            if operate == ‘2’:<br>                                insert(db)<br>                            if operate == ‘3’:<br>                                update(db)<br>                            if operate == ‘4’:<br>                                delete(db)<br>                            if operate == ‘5’:<br>                                break<br>                        elif data == 0:<br>                            print “—user menu—“<br>                            print “—1.select—-“<br>                            print “—2.update—-“<br>                            print “—3.quit——“<br>                            operate = raw_input(“输入操作对应的数字：”)<br>                            if operate == ‘1’:<br>                                selectone(db,loginname)<br>                            if operate == ‘2’:<br>                                print “—1.update information—“<br>                                print “—2.update password—“<br>                                op = raw_input(“输入操作：”)<br>                                if op == ‘1’:<br>                                    updateone(db,loginname)<br>                                if op == ‘2’:<br>                                    updatepw(db,loginname)<br>                            if operate == ‘3’:<br>                                break<br>                        else:<br>                            break<br>                except:<br>                    print “登陆失败！”<br>                    db.rollback()<br>        elif order == ‘quit’:<br>            db.close()<br>            return<br>        else:<br>            continue<br>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    main()<br>```</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/14/first/" rel="prev" title="mysql在创建数据库时指定编码">
+                mysql在创建数据库时指定编码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="高天" />
+          <p class="site-author-name" itemprop="name">高天</p>
+          <p class="site-description motion-element" itemprop="description">年轻是一种资源，但不努力就浪费了。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gaotianhd" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.douban.com" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wuxubj.cn" title="务虚笔记" target="_blank">务虚笔记</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://michaelxiang.me" title="Michael_翔" target="_blank">Michael_翔</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">1.</span> <span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">1.1.</span> <span class="nav-text">常用命令</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高天</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
