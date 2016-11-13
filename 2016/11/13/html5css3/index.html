@@ -1,0 +1,871 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ioc?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
+&amp;lt;!Doctype&amp;gt;声明位于文档中的最前面的位置，处于标签之前，次标签可以告知浏览器文档使用哪种HTML或XHTML规范
+严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。
+混杂模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止以防止站点无法工作。
+触发严格模式很简单，就是正常的建立网页，声明正确的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5/css3面试题">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/html5css3/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
+&amp;lt;!Doctype&amp;gt;声明位于文档中的最前面的位置，处于标签之前，次标签可以告知浏览器文档使用哪种HTML或XHTML规范
+严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。
+混杂模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止以防止站点无法工作。
+触发严格模式很简单，就是正常的建立网页，声明正确的">
+<meta property="og:updated_time" content="2016-11-13T15:56:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html5/css3面试题">
+<meta name="twitter:description" content="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?
+&amp;lt;!Doctype&amp;gt;声明位于文档中的最前面的位置，处于标签之前，次标签可以告知浏览器文档使用哪种HTML或XHTML规范
+严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。
+混杂模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止以防止站点无法工作。
+触发严格模式很简单，就是正常的建立网页，声明正确的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: 'Author'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/13/html5css3/"/>
+
+  <title> html5/css3面试题 | My Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">My Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+
+
+      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()    '>High</a> </li>
+
+
+    </ul>
+  
+
+  
+</nav>
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                html5/css3面试题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-13T23:56:33+08:00" content="2016-11-13">
+              2016-11-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Doctype作用？严格模式与混杂模式如何区分？它们有何意义"><a href="#Doctype作用？严格模式与混杂模式如何区分？它们有何意义" class="headerlink" title="Doctype作用？严格模式与混杂模式如何区分？它们有何意义?"></a>Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</h5><ol>
+<li>&lt;!Doctype&gt;声明位于文档中的最前面的位置，处于<html>标签之前，次标签可以告知浏览器文档使用哪种HTML或XHTML规范</html></li>
+<li>严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。</li>
+<li>混杂模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止以防止站点无法工作。</li>
+<li>触发严格模式很简单，就是正常的建立网页，声明正确的DTD，便是严格模式。DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。</li>
+</ol>
+<h5 id="HTML5-为什么只需要写-lt-DOCTYPE-HTML-gt-？"><a href="#HTML5-为什么只需要写-lt-DOCTYPE-HTML-gt-？" class="headerlink" title="HTML5 为什么只需要写&lt;!DOCTYPE HTML&gt; ？"></a>HTML5 为什么只需要写&lt;!DOCTYPE HTML&gt; ？</h5><p>HTML5 不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
+<h5 id="行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><a href="#行内元素有哪些？块级元素有哪些？-空-void-元素有那些？" class="headerlink" title="行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？"></a>行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</h5><p>行内元素：a 标签 ， em 强调 ， strong 粗体强调 ， i 斜体 ， img 图片 ， b 粗体 ， span 标签 ， label 标签 ， select 下拉菜单。<br>块级元素：div，dl，dt，dd，ul，li，ol，p，h1-h6，table，form。<br>空元素：br 换行，hr 水平线。</p>
+<h5 id="页面导入样式时，使用link和-import有什么区别？"><a href="#页面导入样式时，使用link和-import有什么区别？" class="headerlink" title="页面导入样式时，使用link和@import有什么区别？"></a>页面导入样式时，使用link和@import有什么区别？</h5><ol>
+<li>link属于XHTML标签，而@import是CSS提供的;</li>
+<li>页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;</li>
+<li>import只在IE5以上才能识别，而link是XHTML标签，无兼容问题;</li>
+<li>link方式的样式的权重 高于@import的权重.</li>
+</ol>
+<h5 id="介绍一下你对浏览器内核的理解？"><a href="#介绍一下你对浏览器内核的理解？" class="headerlink" title="介绍一下你对浏览器内核的理解？"></a>介绍一下你对浏览器内核的理解？</h5><h5 id="常见的浏览器内核有哪些？"><a href="#常见的浏览器内核有哪些？" class="headerlink" title="常见的浏览器内核有哪些？"></a>常见的浏览器内核有哪些？</h5><ol>
+<li>IE浏览器的内核Trident</li>
+<li>Mozilla的Gecko</li>
+<li>Chrome的Blink（WebKit的分支）</li>
+<li>Opera内核原为Presto，现为Blink</li>
+</ol>
+<h5 id="html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？"><a href="#html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？" class="headerlink" title="html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？"></a>html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</h5><ul>
+<li><p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。</p>
+</li>
+<li><p>绘画 canvas<br>用于媒介回放的 video 和 audio 元素<br>本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；<br>sessionStorage 的数据在浏览器关闭后自动删除</p>
+<p>语意化更好的内容元素，比如 article、footer、header、nav、section<br>表单控件，calendar、date、time、email、url、search<br>新的技术webworker, websockt, Geolocation</p>
+</li>
+<li><p>移除的元素</p>
+</li>
+</ul>
+<p>纯表现的元素：basefont，big，center，font, s，strike，tt，u；</p>
+<p>对可用性产生负面影响的元素：frame，frameset，noframes；</p>
+<p>支持HTML5新标签：</p>
+<ul>
+<li><p>IE8/IE7/IE6支持通过document.createElement方法产生的标签，<br>可以利用这一特性让这些浏览器支持HTML5新标签，</p>
+<p>浏览器支持新标签后，还需要添加标签默认的样式：</p>
+</li>
+<li><p>当然最好的方式是直接使用成熟的框架、使用最多的是html5shim框架</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--[if lt IE 9]&gt;</div><div class="line">&lt;script&gt; src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如何区分： DOCTYPE声明\新增的结构元素\功能元素</p>
+<h5 id="简述一下你对HTML语义化的理解？"><a href="#简述一下你对HTML语义化的理解？" class="headerlink" title="简述一下你对HTML语义化的理解？"></a>简述一下你对HTML语义化的理解？</h5><p>用正确的标签做正确的事情！<br>html语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；<br>在没有样式CCS情况下也以一种文档格式显示，并且是容易阅读的。<br>搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+<h5 id="HTML5的离线储存怎么使用，工作原理能不能解释一下？"><a href="#HTML5的离线储存怎么使用，工作原理能不能解释一下？" class="headerlink" title="HTML5的离线储存怎么使用，工作原理能不能解释一下？"></a>HTML5的离线储存怎么使用，工作原理能不能解释一下？</h5><p>localStorage    长期存储数据，浏览器关闭后数据不丢失；<br>sessionStorage  数据在浏览器关闭后自动删除。</p>
+<h5 id="浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"><a href="#浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？" class="headerlink" title="浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"></a>浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</h5><h5 id="请描述一下-cookies，sessionStorage-和-localStorage-的区别？"><a href="#请描述一下-cookies，sessionStorage-和-localStorage-的区别？" class="headerlink" title="请描述一下 cookies，sessionStorage 和 localStorage 的区别？"></a>请描述一下 cookies，sessionStorage 和 localStorage 的区别？</h5><p>cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会<br>sessionStorage和localStorage的存储空间更大；<br>sessionStorage和localStorage有更多丰富易用的接口；<br>sessionStorage和localStorage各自独立的存储空间；</p>
+<h5 id="iframe有那些缺点？"><a href="#iframe有那些缺点？" class="headerlink" title="iframe有那些缺点？"></a>iframe有那些缺点？</h5><p>iframe会阻塞主页面的Onload事件；<br>iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。<br>使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript<br>动态给iframe添加src属性值，这样可以可以绕开以上两个问题。</p>
+<h5 id="Label的作用是什么？是怎么用的？（加-for-或-包裹）"><a href="#Label的作用是什么？是怎么用的？（加-for-或-包裹）" class="headerlink" title="Label的作用是什么？是怎么用的？（加 for 或 包裹）"></a>Label的作用是什么？是怎么用的？（加 for 或 包裹）</h5><p>可以使标签内的区域指向label标签for属性指代的对象的事件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">无label标签:&lt;input id=&quot;ye&quot; type=&quot;checkbox&quot; /&gt; 普通文本</div><div class="line">有label标签:&lt;label for=&quot;ye&quot;&gt;&lt;input id=&quot;ye&quot; type=&quot;checkbox&quot; /&gt;我是标签文本&lt;/label&gt;</div></pre></td></tr></table></figure></p>
+<p>有label标签的这一段，点击标签中的文本，可使多选框聚焦。</p>
+<h5 id="HTML5的form如何关闭自动完成功能？"><a href="#HTML5的form如何关闭自动完成功能？" class="headerlink" title="HTML5的form如何关闭自动完成功能？"></a>HTML5的form如何关闭自动完成功能？</h5><p>autocomplete 设置整个表单是否开启自动完成 on|off</p>
+<h5 id="如何实现浏览器内多个标签页之间的通信-阿里"><a href="#如何实现浏览器内多个标签页之间的通信-阿里" class="headerlink" title="如何实现浏览器内多个标签页之间的通信? (阿里)"></a>如何实现浏览器内多个标签页之间的通信? (阿里)</h5><p>方法一：使用localStorage<br>使用localStorage.setItem(key,value);添加内容<br>使用storage事件监听添加、修改、删除的动作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&quot;storage&quot;,function(event)&#123;  </div><div class="line">        $(&quot;#name&quot;).val(event.key+”=”+event.newValue);  </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>方法二、使用cookie+setInterval<br>HTML代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;inputidinputid=&quot;name&quot;&gt;&lt;input type=&quot;button&quot; id=&quot;btnOK&quot;value=&quot;发送&quot;&gt;</div></pre></td></tr></table></figure></p>
+<p>JS代码-页面1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(function()&#123;  </div><div class="line">       $(&quot;#btnOK&quot;).click(function()&#123;  </div><div class="line">           varname=$(&quot;#name&quot;).val();  </div><div class="line">           document.cookie=&quot;name=&quot;+name;  </div><div class="line">       &#125;);  </div><div class="line">   &#125;);</div></pre></td></tr></table></figure></p>
+<p>JS代码-页面2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//获取Cookie天的内容  </div><div class="line">function getKey(key) &#123;  </div><div class="line">    return JSON.parse(&quot;&#123;\&quot;&quot;+ document.cookie.replace(/;\s+/gim,&quot;\&quot;,\&quot;&quot;).replace(/=/gim, &quot;\&quot;:\&quot;&quot;) +&quot;\&quot;&#125;&quot;)[key];  </div><div class="line">&#125;  </div><div class="line">//每隔1秒获取Cookie的内容  </div><div class="line">setInterval(function()&#123;  </div><div class="line">    console.log(getKey(&quot;name&quot;));  </div><div class="line"> &#125;,1000);</div></pre></td></tr></table></figure></p>
+<h5 id="webSocket如何兼容低浏览器？-阿里"><a href="#webSocket如何兼容低浏览器？-阿里" class="headerlink" title="webSocket如何兼容低浏览器？(阿里)"></a>webSocket如何兼容低浏览器？(阿里)</h5><h5 id="页面可见性（Page-Visibility-API）-可以有哪些用途？"><a href="#页面可见性（Page-Visibility-API）-可以有哪些用途？" class="headerlink" title="页面可见性（Page Visibility API） 可以有哪些用途？"></a>页面可见性（Page Visibility API） 可以有哪些用途？</h5><p>页面可见性： 就是对于用户来说，页面是显示还是隐藏, 所谓显示的页面，就是我们正在看的页面；隐藏的页面，就是我们没有看的页面。 因为，我们一次可以打开好多标签页面来回切换着，始终只有一个页面在我们眼前，其他页面就是隐藏的，还有一种就是，把浏览器最小化，所有的页面就都不可见了。</p>
+<p>API 很简单，document.hidden 就返回一个布尔值，如果是true, 表示页面可见，false 则表示，页面隐藏。  不同页面之间来回切换，触发visibilitychange事件。 还有一个document.visibilityState, 表示页面所处的状态，取值：visible, hidden 等四个。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">document.addEventListener(&quot;visibilitychange&quot;, function()&#123;</div><div class="line">    if(document.hidden)&#123;</div><div class="line">        document.title =&quot;hidden&quot;;</div><div class="line">    &#125;else &#123;</div><div class="line">        document.title = &quot;visibile&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>我们打开这个页面，然后再打开另一个页面，来回点击这两个页面，当我们看到这个页面时，标题显示visiable ,当我们看另一个页面时，标题显示hidden;动画，视频，音频都可以在页面显示时打开，在页面隐藏时关闭。</p>
+<h5 id="如何在页面上实现一个圆形的可点击区域？"><a href="#如何在页面上实现一个圆形的可点击区域？" class="headerlink" title="如何在页面上实现一个圆形的可点击区域？"></a>如何在页面上实现一个圆形的可点击区域？</h5><ol>
+<li><p>border-radius（H5）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;  </div><div class="line"> .disc&#123;  </div><div class="line">     width:100px;  </div><div class="line">     height:100px;  </div><div class="line">     background-color:dimgray;  </div><div class="line">     border-radius: 50%;  </div><div class="line">     cursor: pointer;  </div><div class="line">     position: absolute;  </div><div class="line">     left:50px;  </div><div class="line">     top:50px;    </div><div class="line">     line-height: 100px;  </div><div class="line">     text-align: center;  </div><div class="line">     color: white;  </div><div class="line"> &#125;  </div><div class="line">&lt;/style&gt;  </div><div class="line">&lt;div class=&quot;disc&quot;&gt;智学无忧&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>纯js实现<br>需要求一个点在不在圆上简单算法、获取鼠标坐标等等<br>两点之间的距离计算公式<br>上面公式对于JavaScript代码如下：<br>|AB|=Math.abs(Math.sqrt(Math.pow(X2-X1),2)+Math.pow(Y2-Y1,2)))<br>Math.abs()求绝对值<br>Math.pow(底数,指数)<br>Math.sqrt()求平方根<br>示例：<br>假设圆心为（100,100）,半径为50，在圆内点击弹出相应的信息，在圆外显示不在圆内的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">document.onclick=function(e)&#123;  </div><div class="line">    var r=50;//圆的半径  </div><div class="line">var x1=100,y1=100,x2= e.clientX;y2= e.clientY;  </div><div class="line">//计算鼠标点的位置与圆心的距离  </div><div class="line">    var len=Math.abs(Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)));  </div><div class="line">    if(len&lt;=50)&#123;  </div><div class="line">        console.log(&quot;内&quot;)  </div><div class="line">    &#125;else&#123;  </div><div class="line">        console.log(&quot;外&quot;)  </div><div class="line">    &#125;  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h5 id="实现不使用-border-画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。"><a href="#实现不使用-border-画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。" class="headerlink" title="实现不使用 border 画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。"></a>实现不使用 border 画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。</h5><h5 id="网页验证码是干嘛的，是为了解决什么安全问题？"><a href="#网页验证码是干嘛的，是为了解决什么安全问题？" class="headerlink" title="网页验证码是干嘛的，是为了解决什么安全问题？"></a>网页验证码是干嘛的，是为了解决什么安全问题？</h5><p>防止恶意注册和暴力破解 所谓恶意注册和暴力破解都是用软件进行的。 人工注册再快，也需要一项一项输入资料，速度很慢，对服务器基本没有影响。如果没有验证码可以使用软件注册的话，可以同时运行成千上万个线程，一次能注册成千上万个用户，让服务器的数据库很快变得臃肿不堪，运行效率下降。</p>
+<h5 id="title与h1的区别、b与strong的区别、i与em的区别？"><a href="#title与h1的区别、b与strong的区别、i与em的区别？" class="headerlink" title="title与h1的区别、b与strong的区别、i与em的区别？"></a>title与h1的区别、b与strong的区别、i与em的区别？</h5><p>从网站角度看，title更重于网站信息。title可以直接告诉搜索引擎和用户这个网站是关于什么主题和内容的。<br>从文章角度看，h1则是用于概括文章主题。用户进入内容页，想看到的当然就是文章的内容，h1文章标题就是最重要的。文章标题最好只有一个，多个h1会导致搜索引擎不知道这个页面哪个标题内容最重要，导致淡化这个页面的标题和关键词，起不到突出主题的效果。<br>区别：<br>h1突出文章主题，面对用户，更突出其视觉效果，突出网站标题或关键字用title。一篇文章，一个页面最好只用一个h1，多个h1会稀释主题。一个网站可以有多个title,最好一个单页用一个title，以便突出网站页面主体信息，从seo看，title权重比h1高，适用性比h1广。标记了h1的文字页面给予的权重会比页面内其他权重高很多。一个好的网站是h1和title并存，既突出h1文章主题，又突出网站主题和关键字。达到双重优化网站的效果。</p>
+<p><b>为了加粗而加粗，<strong>为了标明重点而加粗，也可以用其它方式来强调，比如下划线，比如字体加大，比如红色，等等，可以通过css来改变strong的具体表现。</strong></b></p>
+<p>I是Italic(斜体)，而em是emphasize(强调)。</p>
+<h5 id="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><a href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？" class="headerlink" title="介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"></a>介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</h5><p>CSS盒子模型：由四个属性组成的外边距(margin)、内边距(padding)、边界(border)、内容区(width和height);</p>
+<p>标准的CSS盒子模型和低端IE CSS盒子模型不同：宽高不一样</p>
+<p>标准的css盒子模型宽高就是内容区宽高；</p>
+<p>低端IE css盒子模型宽高 内边距﹢边界﹢内容区；</p>
+<h5 id="CSS选择符有哪些？哪些属性可以继承？"><a href="#CSS选择符有哪些？哪些属性可以继承？" class="headerlink" title="CSS选择符有哪些？哪些属性可以继承？"></a>CSS选择符有哪些？哪些属性可以继承？</h5><p>通配选择符* { sRules }</p>
+<p>类型选择符E { sRules }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">td &#123; font-size:14px; width:120px; &#125;</div></pre></td></tr></table></figure></p>
+<p>属性选择符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">E [ attr ] &#123; sRules &#125;</div><div class="line">E [ attr = value ] &#123; sRules &#125;</div><div class="line">E [ attr ~= value ] &#123; sRules &#125;</div><div class="line">E [ attr |= value ] &#123; sRules &#125;  </div><div class="line">h[title] &#123; color: blue; &#125;/* 所有具有title属性的h对象*/</div><div class="line">span[class=demo] &#123; color: red; &#125;  </div><div class="line">div[speed=&quot;fast&quot;][dorun=&quot;no&quot;] &#123; color: red; &#125;</div><div class="line">a[rel~=&quot;copyright&quot;] &#123; color:black; &#125;</div></pre></td></tr></table></figure></p>
+<p>包含选择符E1 E2 { sRules }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">table td &#123; font-size:14px; &#125;</div></pre></td></tr></table></figure></p>
+<p>子对象选择符E1 &gt; E2 { sRules }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">div ul&gt;li p &#123; font-size:14px; &#125;</div></pre></td></tr></table></figure></p>
+<p>ID选择符 #ID { sRules }</p>
+<p>类选择符 E.className { sRules }</p>
+<p>选择符分组<br>E1 , E2 , E3 { sRules }</p>
+<p>伪类及伪对象选择符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">E : Pseudo-Classes &#123; sRules &#125;  </div><div class="line">( Pseudo-Classes )[:link :hover :active :visited :focus :first-child :first :left :right :lang]</div><div class="line">E : Pseudo-Elements &#123; sRules &#125;  </div><div class="line">( Pseudo-Elements )[:first-letter :first-line :before :after]</div></pre></td></tr></table></figure></p>
+<p>可以继承的有：<br><strong>font-size font-family color</strong><br>不可继承的一般有：<br><strong>border padding margin background-color width height 等</strong></p>
+<h5 id="CSS优先级算法如何计算？"><a href="#CSS优先级算法如何计算？" class="headerlink" title="CSS优先级算法如何计算？"></a>CSS优先级算法如何计算？</h5><p>行内style &gt; id &gt; class &gt; 标签 &gt; 继承 &gt; 浏览器默认属性</p>
+<h5 id="CSS3新增伪类有那些？"><a href="#CSS3新增伪类有那些？" class="headerlink" title="CSS3新增伪类有那些？"></a>CSS3新增伪类有那些？</h5><p>:first-of-type    p:first-of-type    选择属于其父元素的首个 </p><p> 元素的每个 </p><p> 元素。<br>:last-of-type    p:last-of-type    选择属于其父元素的最后 </p><p> 元素的每个 </p><p> 元素。<br>:only-of-type    p:only-of-type    选择属于其父元素唯一的 </p><p> 元素的每个 </p><p> 元素。<br>:only-child    p:only-child    选择属于其父元素的唯一子元素的每个 </p><p> 元素。<br>:nth-child(n)    p:nth-child(2)    选择属于其父元素的第二个子元素的每个 </p><p> 元素。<br>:nth-last-child(n)    p:nth-last-child(2)    同上，从最后一个子元素开始计数。<br>:nth-of-type(n)    p:nth-of-type(2)    选择属于其父元素第二个 </p><p> 元素的每个 </p><p> 元素。<br>:nth-last-of-type(n)    p:nth-last-of-type(2)    同上，但是从最后一个子元素开始计数。<br>:last-child    p:last-child    选择属于其父元素最后一个子元素每个 </p><p> 元素。<br>:root    :root    选择文档的根元素。<br>:empty    p:empty    选择没有子元素的每个 </p><p> 元素（包括文本节点）。<br>:target    #news:target    选择当前活动的 #news 元素。<br>:enabled    input:enabled    选择每个启用的 <input> 元素。<br>:disabled    input:disabled    选择每个禁用的 <input> 元素<br>:checked    input:checked    选择每个被选中的 <input> 元素。<br>:not(selector)    :not(p)    选择非 </p><p> 元素的每个元素。<br>::selection    ::selection    选择被用户选取的元素部分。</p>
+<h5 id="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><a href="#如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？" class="headerlink" title="如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"></a>如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</h5><p>居中div：margin: 0 auto<br>居中浮动元素：外面套一个div设置margin:0 auto;<br>如何让设置绝对定位的div居中：position:absolute;top:50%;left:50%;margin-top:-盒子高度;margin-left:盒子宽度</p>
+<h5 id="display有哪些值？说明他们的作用。"><a href="#display有哪些值？说明他们的作用。" class="headerlink" title="display有哪些值？说明他们的作用。"></a>display有哪些值？说明他们的作用。</h5><p>none：设置元素不显示，并且不占页面空间。<br>block：设置为块级元素，可以设置宽高。<br>inline：设置为行内元素。<br>inline-block：设置为行内块元素。</p>
+<h5 id="position的值relative和absolute定位原点是？"><a href="#position的值relative和absolute定位原点是？" class="headerlink" title="position的值relative和absolute定位原点是？"></a>position的值relative和absolute定位原点是？</h5><p>relative：相对于这个元素原先的位置偏移。<br>absolute：如果父元素设置为relative则相对于父元素。不设置相对于body。</p>
+<h5 id="CSS3有哪些新特性？"><a href="#CSS3有哪些新特性？" class="headerlink" title="CSS3有哪些新特性？"></a>CSS3有哪些新特性？</h5><p>CSS3有哪些新特性：<br>    新增各种CSS选择器  （: not(.input)：所有 class 不是“input”的节点）<br>    圆角           （border-radius:8px）<br>    多列布局        （multi-column layout）<br>    阴影和反射        （Shadow\Reflect）<br>    文字特效      （text-shadow、）<br>    文字渲染      （Text-decoration）<br>    线性渐变      （gradient）<br>    旋转          （transform）<br>    增加了旋转,缩放,定位,倾斜,动画，多背景<br>    transform:\scale(0.85,0.90)\ translate(0px,-30px)\ skew(-9deg,0deg)\Animation</p>
+<h5 id="请解释一下CSS3的Flexbox（弹性盒布局模型）-以及适用场景？"><a href="#请解释一下CSS3的Flexbox（弹性盒布局模型）-以及适用场景？" class="headerlink" title="请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？"></a>请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</h5><h5 id="用纯CSS创建一个三角形的原理是什么？"><a href="#用纯CSS创建一个三角形的原理是什么？" class="headerlink" title="用纯CSS创建一个三角形的原理是什么？"></a>用纯CSS创建一个三角形的原理是什么？</h5><h5 id="一个满屏-品-字布局-如何设计"><a href="#一个满屏-品-字布局-如何设计" class="headerlink" title="一个满屏 品 字布局 如何设计?"></a>一个满屏 品 字布局 如何设计?</h5><h5 id="经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧-？"><a href="#经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧-？" class="headerlink" title="经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？"></a>经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？</h5><h5 id="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"><a href="#li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？" class="headerlink" title="li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"></a>li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</h5><h5 id="为什么要初始化CSS样式"><a href="#为什么要初始化CSS样式" class="headerlink" title="为什么要初始化CSS样式?"></a>为什么要初始化CSS样式?</h5><h5 id="absolute的containing-block计算方式跟正常流有什么不同？"><a href="#absolute的containing-block计算方式跟正常流有什么不同？" class="headerlink" title="absolute的containing block计算方式跟正常流有什么不同？"></a>absolute的containing block计算方式跟正常流有什么不同？</h5><h5 id="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><a href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？" class="headerlink" title="CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"></a>CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</h5><h5 id="position跟display、margin-collapse、overflow、float这些特性相互叠加后会怎么样？"><a href="#position跟display、margin-collapse、overflow、float这些特性相互叠加后会怎么样？" class="headerlink" title="position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？"></a>position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？</h5><h5 id="对BFC规范-块级格式化上下文：block-formatting-context-的理解？"><a href="#对BFC规范-块级格式化上下文：block-formatting-context-的理解？" class="headerlink" title="对BFC规范(块级格式化上下文：block formatting context)的理解？"></a>对BFC规范(块级格式化上下文：block formatting context)的理解？</h5><h5 id="CSS权重优先级是如何计算的？"><a href="#CSS权重优先级是如何计算的？" class="headerlink" title="CSS权重优先级是如何计算的？"></a>CSS权重优先级是如何计算的？</h5><h5 id="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"><a href="#请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式" class="headerlink" title="请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"></a>请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式</h5><h5 id="移动端的布局用过媒体查询吗？"><a href="#移动端的布局用过媒体查询吗？" class="headerlink" title="移动端的布局用过媒体查询吗？"></a>移动端的布局用过媒体查询吗？</h5><h5 id="使用-CSS-预处理器吗？喜欢那个？"><a href="#使用-CSS-预处理器吗？喜欢那个？" class="headerlink" title="使用 CSS 预处理器吗？喜欢那个？"></a>使用 CSS 预处理器吗？喜欢那个？</h5><h5 id="CSS优化、提高性能的方法有哪些？"><a href="#CSS优化、提高性能的方法有哪些？" class="headerlink" title="CSS优化、提高性能的方法有哪些？"></a>CSS优化、提高性能的方法有哪些？</h5><h5 id="浏览器是怎样解析CSS选择器的？"><a href="#浏览器是怎样解析CSS选择器的？" class="headerlink" title="浏览器是怎样解析CSS选择器的？"></a>浏览器是怎样解析CSS选择器的？</h5><h5 id="在网页中的应该使用奇数还是偶数的字体？为什么呢？"><a href="#在网页中的应该使用奇数还是偶数的字体？为什么呢？" class="headerlink" title="在网页中的应该使用奇数还是偶数的字体？为什么呢？"></a>在网页中的应该使用奇数还是偶数的字体？为什么呢？</h5><h5 id="margin和padding分别适合什么场景使用？"><a href="#margin和padding分别适合什么场景使用？" class="headerlink" title="margin和padding分别适合什么场景使用？"></a>margin和padding分别适合什么场景使用？</h5><h5 id="抽离样式模块怎么写，说出思路，有无实践经验？-阿里航旅的面试题"><a href="#抽离样式模块怎么写，说出思路，有无实践经验？-阿里航旅的面试题" class="headerlink" title="抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]"></a>抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]</h5><h5 id="元素竖向的百分比设定是相对于容器的高度吗？"><a href="#元素竖向的百分比设定是相对于容器的高度吗？" class="headerlink" title="元素竖向的百分比设定是相对于容器的高度吗？"></a>元素竖向的百分比设定是相对于容器的高度吗？</h5><h5 id="全屏滚动的原理是什么？用到了CSS的那些属性？"><a href="#全屏滚动的原理是什么？用到了CSS的那些属性？" class="headerlink" title="全屏滚动的原理是什么？用到了CSS的那些属性？"></a>全屏滚动的原理是什么？用到了CSS的那些属性？</h5><h5 id="什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"><a href="#什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？" class="headerlink" title="什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"></a>什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</h5><h5 id="视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）"><a href="#视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）" class="headerlink" title="视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）"></a>视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）</h5><h5 id="before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。"><a href="#before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。" class="headerlink" title="::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。"></a>::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。</h5><h5 id="如何修改chrome记住密码后自动填充表单的黄色背景-？"><a href="#如何修改chrome记住密码后自动填充表单的黄色背景-？" class="headerlink" title="如何修改chrome记住密码后自动填充表单的黄色背景 ？"></a>如何修改chrome记住密码后自动填充表单的黄色背景 ？</h5><h5 id="你对line-height是如何理解的？"><a href="#你对line-height是如何理解的？" class="headerlink" title="你对line-height是如何理解的？"></a>你对line-height是如何理解的？</h5><h5 id="设置元素浮动后，该元素的display值是多少？（自动变成display-block）"><a href="#设置元素浮动后，该元素的display值是多少？（自动变成display-block）" class="headerlink" title="设置元素浮动后，该元素的display值是多少？（自动变成display:block）"></a>设置元素浮动后，该元素的display值是多少？（自动变成display:block）</h5><h5 id="怎么让Chrome支持小于12px-的文字？"><a href="#怎么让Chrome支持小于12px-的文字？" class="headerlink" title="怎么让Chrome支持小于12px 的文字？"></a>怎么让Chrome支持小于12px 的文字？</h5><h5 id="让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing-antialiased-）"><a href="#让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing-antialiased-）" class="headerlink" title="让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing: antialiased;）"></a>让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing: antialiased;）</h5><h5 id="font-style属性可以让它赋值为“oblique”-oblique是什么意思？"><a href="#font-style属性可以让它赋值为“oblique”-oblique是什么意思？" class="headerlink" title="font-style属性可以让它赋值为“oblique” oblique是什么意思？"></a>font-style属性可以让它赋值为“oblique” oblique是什么意思？</h5><h5 id="position-fixed-在android下无效怎么处理？"><a href="#position-fixed-在android下无效怎么处理？" class="headerlink" title="position:fixed;在android下无效怎么处理？"></a>position:fixed;在android下无效怎么处理？</h5><h5 id="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"><a href="#如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）" class="headerlink" title="如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"></a>如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）</h5><h5 id="display-inline-block-什么时候会显示间隙？-携程"><a href="#display-inline-block-什么时候会显示间隙？-携程" class="headerlink" title="display:inline-block 什么时候会显示间隙？(携程)"></a>display:inline-block 什么时候会显示间隙？(携程)</h5><h5 id="overflow-scroll时不能平滑滚动的问题怎么处理？"><a href="#overflow-scroll时不能平滑滚动的问题怎么处理？" class="headerlink" title="overflow: scroll时不能平滑滚动的问题怎么处理？"></a>overflow: scroll时不能平滑滚动的问题怎么处理？</h5><h5 id="有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。"><a href="#有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。" class="headerlink" title="有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。"></a>有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</h5><h5 id="png、jpg、gif-这些图片格式解释一下，分别什么时候用。有没有了解过webp？"><a href="#png、jpg、gif-这些图片格式解释一下，分别什么时候用。有没有了解过webp？" class="headerlink" title="png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？"></a>png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？</h5><h5 id="什么是Cookie-隔离？（或者说：请求资源的时候不要让它带cookie怎么做）"><a href="#什么是Cookie-隔离？（或者说：请求资源的时候不要让它带cookie怎么做）" class="headerlink" title="什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）"></a>什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</h5><h5 id="style标签写在body后与body前有什么区别？"><a href="#style标签写在body后与body前有什么区别？" class="headerlink" title="style标签写在body后与body前有什么区别？"></a>style标签写在body后与body前有什么区别？</h5><h5 id="什么是CSS-预处理器-后处理器？"><a href="#什么是CSS-预处理器-后处理器？" class="headerlink" title="什么是CSS 预处理器 / 后处理器？"></a>什么是CSS 预处理器 / 后处理器？</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/13/first/" rel="next" title="mysql在创建数据库时指定编码">
+                <i class="fa fa-chevron-left"></i> mysql在创建数据库时指定编码
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/13/wangluo/" rel="prev" title="python网络编程">
+                python网络编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="高天" />
+          <p class="site-author-name" itemprop="name">高天</p>
+          <p class="site-description motion-element" itemprop="description">年轻是一种资源，但不努力就浪费了。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gaotianhd" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.douban.com" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.wuxubj.cn" title="务虚笔记" target="_blank">务虚笔记</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://michaelxiang.me" title="Michael_翔" target="_blank">Michael_翔</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Doctype作用？严格模式与混杂模式如何区分？它们有何意义"><span class="nav-number">1.</span> <span class="nav-text">Doctype作用？严格模式与混杂模式如何区分？它们有何意义?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML5-为什么只需要写-lt-DOCTYPE-HTML-gt-？"><span class="nav-number">2.</span> <span class="nav-text">HTML5 为什么只需要写<!DOCTYPE HTML> ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#行内元素有哪些？块级元素有哪些？-空-void-元素有那些？"><span class="nav-number">3.</span> <span class="nav-text">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#页面导入样式时，使用link和-import有什么区别？"><span class="nav-number">4.</span> <span class="nav-text">页面导入样式时，使用link和@import有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍一下你对浏览器内核的理解？"><span class="nav-number">5.</span> <span class="nav-text">介绍一下你对浏览器内核的理解？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常见的浏览器内核有哪些？"><span class="nav-number">6.</span> <span class="nav-text">常见的浏览器内核有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分-HTML-和-HTML5？"><span class="nav-number">7.</span> <span class="nav-text">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#简述一下你对HTML语义化的理解？"><span class="nav-number">8.</span> <span class="nav-text">简述一下你对HTML语义化的理解？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML5的离线储存怎么使用，工作原理能不能解释一下？"><span class="nav-number">9.</span> <span class="nav-text">HTML5的离线储存怎么使用，工作原理能不能解释一下？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？"><span class="nav-number">10.</span> <span class="nav-text">浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请描述一下-cookies，sessionStorage-和-localStorage-的区别？"><span class="nav-number">11.</span> <span class="nav-text">请描述一下 cookies，sessionStorage 和 localStorage 的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iframe有那些缺点？"><span class="nav-number">12.</span> <span class="nav-text">iframe有那些缺点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Label的作用是什么？是怎么用的？（加-for-或-包裹）"><span class="nav-number">13.</span> <span class="nav-text">Label的作用是什么？是怎么用的？（加 for 或 包裹）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML5的form如何关闭自动完成功能？"><span class="nav-number">14.</span> <span class="nav-text">HTML5的form如何关闭自动完成功能？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何实现浏览器内多个标签页之间的通信-阿里"><span class="nav-number">15.</span> <span class="nav-text">如何实现浏览器内多个标签页之间的通信? (阿里)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webSocket如何兼容低浏览器？-阿里"><span class="nav-number">16.</span> <span class="nav-text">webSocket如何兼容低浏览器？(阿里)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#页面可见性（Page-Visibility-API）-可以有哪些用途？"><span class="nav-number">17.</span> <span class="nav-text">页面可见性（Page Visibility API） 可以有哪些用途？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何在页面上实现一个圆形的可点击区域？"><span class="nav-number">18.</span> <span class="nav-text">如何在页面上实现一个圆形的可点击区域？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现不使用-border-画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。"><span class="nav-number">19.</span> <span class="nav-text">实现不使用 border 画出1px高的线，在不同浏览器的Quirksmode和CSSCompat模式下都能保持同一效果。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网页验证码是干嘛的，是为了解决什么安全问题？"><span class="nav-number">20.</span> <span class="nav-text">网页验证码是干嘛的，是为了解决什么安全问题？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#title与h1的区别、b与strong的区别、i与em的区别？"><span class="nav-number">21.</span> <span class="nav-text">title与h1的区别、b与strong的区别、i与em的区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？"><span class="nav-number">22.</span> <span class="nav-text">介绍一下标准的CSS的盒子模型？低版本IE的盒子模型有什么不同的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS选择符有哪些？哪些属性可以继承？"><span class="nav-number">23.</span> <span class="nav-text">CSS选择符有哪些？哪些属性可以继承？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS优先级算法如何计算？"><span class="nav-number">24.</span> <span class="nav-text">CSS优先级算法如何计算？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3新增伪类有那些？"><span class="nav-number">25.</span> <span class="nav-text">CSS3新增伪类有那些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？"><span class="nav-number">26.</span> <span class="nav-text">如何居中div？如何居中一个浮动元素？如何让绝对定位的div居中？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#display有哪些值？说明他们的作用。"><span class="nav-number">27.</span> <span class="nav-text">display有哪些值？说明他们的作用。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#position的值relative和absolute定位原点是？"><span class="nav-number">28.</span> <span class="nav-text">position的值relative和absolute定位原点是？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS3有哪些新特性？"><span class="nav-number">29.</span> <span class="nav-text">CSS3有哪些新特性？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请解释一下CSS3的Flexbox（弹性盒布局模型）-以及适用场景？"><span class="nav-number">30.</span> <span class="nav-text">请解释一下CSS3的Flexbox（弹性盒布局模型）,以及适用场景？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用纯CSS创建一个三角形的原理是什么？"><span class="nav-number">31.</span> <span class="nav-text">用纯CSS创建一个三角形的原理是什么？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一个满屏-品-字布局-如何设计"><span class="nav-number">32.</span> <span class="nav-text">一个满屏 品 字布局 如何设计?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧-？"><span class="nav-number">33.</span> <span class="nav-text">经常遇到的浏览器的兼容性有哪些？原因，解决方法是什么，常用hack的技巧 ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？"><span class="nav-number">34.</span> <span class="nav-text">li与li之间有看不见的空白间隔是什么原因引起的？有什么解决办法？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要初始化CSS样式"><span class="nav-number">35.</span> <span class="nav-text">为什么要初始化CSS样式?</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#absolute的containing-block计算方式跟正常流有什么不同？"><span class="nav-number">36.</span> <span class="nav-text">absolute的containing block计算方式跟正常流有什么不同？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？"><span class="nav-number">37.</span> <span class="nav-text">CSS里的visibility属性有个collapse属性值是干嘛用的？在不同浏览器下以后什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#position跟display、margin-collapse、overflow、float这些特性相互叠加后会怎么样？"><span class="nav-number">38.</span> <span class="nav-text">position跟display、margin collapse、overflow、float这些特性相互叠加后会怎么样？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对BFC规范-块级格式化上下文：block-formatting-context-的理解？"><span class="nav-number">39.</span> <span class="nav-text">对BFC规范(块级格式化上下文：block formatting context)的理解？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS权重优先级是如何计算的？"><span class="nav-number">40.</span> <span class="nav-text">CSS权重优先级是如何计算的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式"><span class="nav-number">41.</span> <span class="nav-text">请解释一下为什么会出现浮动和什么时候需要清除浮动？清除浮动的方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端的布局用过媒体查询吗？"><span class="nav-number">42.</span> <span class="nav-text">移动端的布局用过媒体查询吗？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用-CSS-预处理器吗？喜欢那个？"><span class="nav-number">43.</span> <span class="nav-text">使用 CSS 预处理器吗？喜欢那个？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS优化、提高性能的方法有哪些？"><span class="nav-number">44.</span> <span class="nav-text">CSS优化、提高性能的方法有哪些？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器是怎样解析CSS选择器的？"><span class="nav-number">45.</span> <span class="nav-text">浏览器是怎样解析CSS选择器的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在网页中的应该使用奇数还是偶数的字体？为什么呢？"><span class="nav-number">46.</span> <span class="nav-text">在网页中的应该使用奇数还是偶数的字体？为什么呢？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#margin和padding分别适合什么场景使用？"><span class="nav-number">47.</span> <span class="nav-text">margin和padding分别适合什么场景使用？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#抽离样式模块怎么写，说出思路，有无实践经验？-阿里航旅的面试题"><span class="nav-number">48.</span> <span class="nav-text">抽离样式模块怎么写，说出思路，有无实践经验？[阿里航旅的面试题]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#元素竖向的百分比设定是相对于容器的高度吗？"><span class="nav-number">49.</span> <span class="nav-text">元素竖向的百分比设定是相对于容器的高度吗？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#全屏滚动的原理是什么？用到了CSS的那些属性？"><span class="nav-number">50.</span> <span class="nav-text">全屏滚动的原理是什么？用到了CSS的那些属性？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？"><span class="nav-number">51.</span> <span class="nav-text">什么是响应式设计？响应式设计的基本原理是什么？如何兼容低版本的IE？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）"><span class="nav-number">52.</span> <span class="nav-text">视差滚动效果，如何给每页做不同的动画？（回到顶部，向下滑动要再次出现，和只出现一次分别怎么做？）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#before-和-after中双冒号和单冒号-有什么区别？解释一下这2个伪元素的作用。"><span class="nav-number">53.</span> <span class="nav-text">::before 和 :after中双冒号和单冒号 有什么区别？解释一下这2个伪元素的作用。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何修改chrome记住密码后自动填充表单的黄色背景-？"><span class="nav-number">54.</span> <span class="nav-text">如何修改chrome记住密码后自动填充表单的黄色背景 ？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#你对line-height是如何理解的？"><span class="nav-number">55.</span> <span class="nav-text">你对line-height是如何理解的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置元素浮动后，该元素的display值是多少？（自动变成display-block）"><span class="nav-number">56.</span> <span class="nav-text">设置元素浮动后，该元素的display值是多少？（自动变成display:block）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#怎么让Chrome支持小于12px-的文字？"><span class="nav-number">57.</span> <span class="nav-text">怎么让Chrome支持小于12px 的文字？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing-antialiased-）"><span class="nav-number">58.</span> <span class="nav-text">让页面里的字体变清晰，变细用CSS怎么做？（-webkit-font-smoothing: antialiased;）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#font-style属性可以让它赋值为“oblique”-oblique是什么意思？"><span class="nav-number">59.</span> <span class="nav-text">font-style属性可以让它赋值为“oblique” oblique是什么意思？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#position-fixed-在android下无效怎么处理？"><span class="nav-number">60.</span> <span class="nav-text">position:fixed;在android下无效怎么处理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）"><span class="nav-number">61.</span> <span class="nav-text">如果需要手动写动画，你认为最小时间间隔是多久，为什么？（阿里）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#display-inline-block-什么时候会显示间隙？-携程"><span class="nav-number">62.</span> <span class="nav-text">display:inline-block 什么时候会显示间隙？(携程)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#overflow-scroll时不能平滑滚动的问题怎么处理？"><span class="nav-number">63.</span> <span class="nav-text">overflow: scroll时不能平滑滚动的问题怎么处理？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。"><span class="nav-number">64.</span> <span class="nav-text">有一个高度自适应的div，里面有两个div，一个高度100px，希望另一个填满剩下的高度。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#png、jpg、gif-这些图片格式解释一下，分别什么时候用。有没有了解过webp？"><span class="nav-number">65.</span> <span class="nav-text">png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是Cookie-隔离？（或者说：请求资源的时候不要让它带cookie怎么做）"><span class="nav-number">66.</span> <span class="nav-text">什么是Cookie 隔离？（或者说：请求资源的时候不要让它带cookie怎么做）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#style标签写在body后与body前有什么区别？"><span class="nav-number">67.</span> <span class="nav-text">style标签写在body后与body前有什么区别？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是CSS-预处理器-后处理器？"><span class="nav-number">68.</span> <span class="nav-text">什么是CSS 预处理器 / 后处理器？</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">高天</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/particle.js"></script>
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
